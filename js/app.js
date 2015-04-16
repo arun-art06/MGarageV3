@@ -22,7 +22,7 @@ define([
             this.kendoApp = new kendo.mobile.Application(document.body, { layout: "layout", statusBarStyle: statusBarStyle });            
         },
         loadCustomer: function (e) {
-                app.customerService.viewModel = new customerViewModel($("#customer_list_ul"));     
+                app.customerService.viewModel = new customerViewModel(e.view.element.find("#customer_list_ul"));     
                 kendo.bind($("#customer_list"), app.customerService.viewModel);  
         },
         loadInGarage: function (e) {

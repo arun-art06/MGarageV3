@@ -45,25 +45,31 @@
             </div>
         </div>   
     </div>    
-    <div id="customer_list"   data-role="view" data-title="Customers"  data-model="app.customerService.viewModel" data-after-show="app.loadCustomer" >
-        <header data-role="header">
-            <div data-role="tabstrip">
-                <a href="#tabstrip-profile" data-icon="contacts">Customer</a>
-                <a href="#tabstrip-sales" data-icon="history">Workorder</a>
-                <a href="#tabstrip-rating" data-icon="favorites">Order</a>                        
-            </div>    
-        </header>           
-        <ul id="customer_list_ul"  data-role="listview"  data-style="inset" 
-                data-bind="source: customerDataSource">
+    <div id="customer_list"   data-role="view" data-title="Customers"   data-init="app.loadCustomer" >
+        <header data-role="header">             
+            <div data-role="navbar">
+                <a id="back-button" class="nav-button" data-align="left" href="#/" data-role="backbutton">Back</a>
+                <span data-role="view-title"></span>
+                <a data-align="right" data-icon="organize" data-role="button" data-bind="events: { click: customer_new }"  >Add</a>
+            </div>
+        </header>  
+        <footer data-role="footer">
+            <div  data-role="tabstrip">
+                <a href="#customer_list"  data-icon="contacts" >Customer</a>
+                <a href="#customer_list"  data-icon="history"  >Workorder</a>
+                <a href="#customer_list"  data-icon="favorites" >Order</a>   
+            </div>   
+        </footer>
+        <ul id="customer_list_ul"  data-role="listview"  data-style="inset"  >
         </ul>           
     </div>  
-    <div id="customer_edit_view"
+    <div id="customer_form_view"
         data-role="view"
         data-title="Customer"         
         data-transition="slide:right"
         data-stretch="true"
         >
-        <form >            
+        <form > 
                 <ul class="customerEdit" data-role="listview" data-style="inset">
                     <li>
                         <label class="labelname">
@@ -113,7 +119,7 @@
                     </div>
                 </div>   
                     
-                <a class="button selected-button" data-role="button" data-icon="compose" data-click="app.customerService.viewModel.customer_edit_save">Update</a>
+                <a class="button selected-button" data-role="button" data-icon="compose" data-click="app.customerService.viewModel.customer_save">Update</a>
                 <a class="button" data-role="button" data-icon="home" href="#:back">Back</a>   
             
         </form>

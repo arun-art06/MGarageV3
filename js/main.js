@@ -1,4 +1,5 @@
-var host = "http://192.168.2.18:8069/";
+var host = "http://192.168.2.17:8069/";
+//var host = "http://adigielite.ddns.net:8069/";
 var baseUrl = host + "openacademy/OpenacademyCustomer";
 
 require.config({
@@ -47,4 +48,11 @@ require(['kendo', 'app'], function (kendo, app) {//['app'], function (app) {
     });  
     
 });
+
+
+
+function customer_new1(e){
+    debugger;
+    
+}; 
  
