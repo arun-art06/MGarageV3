@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <!--<link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="css/kendo.common.min.css" />
+    <link rel="stylesheet" href="css/kendo.default.min.css" />
+    <link rel="stylesheet" href="css/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="css/kendo.dataviz.default.min.css" />
+    <link rel="stylesheet" href="css/kendo.mobile.all.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+
+    <!--<link rel="stylesheet" href="css/km-fa-font.css" />-->
+    <link rel="stylesheet" href="css/mgarage_style.css" />
+
+    <script src="cordova.js"></script>
+    <!--<script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/kendo.mobile.min.js"></script>-->
+    <script data-main="js/main" src="js/lib/require.min.js"></script>
+    
+</head>
+<body>    
+   <div id="login" data-id="login" data-role="view" data-title="Sign In" data-init="window.app.login_init" data-stretch="true">
+         <div class="full-height">
+            <div class="middle-align">
+                <form  >
+                    <ul data-role="listview" data-style="inset">  
+                        <li>
+                            <label>User name
+                                <input id="usr_name" type="text" value="admin" />
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                            Password
+                            <input id="usr_password" type="password" value="admin" />
+                            </label>
+                        </li> 
+                        <li>
+                            <i></i> <a class="button" data-role="button" data-animated="true" data-icon="action" data-click="app.log_click"  style="float:right">Login</a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>   
+    </div>    
+    <div id="customer_list"   data-role="view" data-title="Customers"  data-model="app.customerService.viewModel" data-after-show="app.loadCustomer" >
+        <header data-role="header">
+            <div data-role="tabstrip">
+                <a href="#tabstrip-profile" data-icon="contacts">Customer</a>
+                <a href="#tabstrip-sales" data-icon="history">Workorder</a>
+                <a href="#tabstrip-rating" data-icon="favorites">Order</a>                        
+            </div>    
+        </header>           
+        <ul id="customer_list_ul"  data-role="listview"  data-style="inset" 
+                data-bind="source: customerDataSource">
+        </ul>           
+    </div>  
+    <div id="customer_edit_view"
+        data-role="view"
+        data-title="Customer"         
+        data-transition="slide:right"
+        data-stretch="true"
+        >
+        <form >            
+                <ul class="customerEdit" data-role="listview" data-style="inset">
+                    <li>
+                        <label class="labelname">
+                            Name
+                            <input type="search" id="name"  data-bind="value: name" value="" required data-required-msg="please enter name"/>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="labelname">
+                            Street
+                            <input type="search" id="street" data-bind="value: street"  value="" />
+                        </label>
+                    </li>
+
+                    <li>
+                        <label class="labelname">
+                            POBox
+                            <input type="search" id="pobox" data-bind="value: zip" value="" />
+                        </label>
+                    </li>
+                    <li>
+                        <label class="labelname">
+                            City
+                            <input type="search" id="city" data-bind="value: city"  value="" />
+                        </label>
+                    </li>
+                    <li>
+                        <label class="labelname">
+                            Phone
+                            <input type="search" id="phone"  data-bind="value: phone"  value="" required data-required-msg="please enter mobile no."/>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="labelname">
+                            Email
+                            <input type="search" id="email" data-bind="value: email" value="" />
+                        </label>
+                    </li>
+
+                </ul>
+                <div class="additemlist">
+                    <div class="itemlabel">
+                        Vehicle
+                    </div>
+                    <div class="itemaddbutton">
+                        <img  class="addbutton" alt="Mountain View">
+                    </div>
+                </div>   
+                    
+                <a class="button selected-button" data-role="button" data-icon="compose" data-click="app.customerService.viewModel.customer_edit_save">Update</a>
+                <a class="button" data-role="button" data-icon="home" href="#:back">Back</a>   
+            
+        </form>
+    </div>
+</body>
+</html>
